@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Number Games</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script>
+
+            var the_number = null;
+
+			function pick_number(){
+                the_number = Math.ceil(Math.random()*100);
+                return the_number;
+            }
+
+            $(document).ready(function(){
+                $("button").click(make_guess)
+
+                function make_guess(){
+                    var the_guess = document.getElementById("guess_input").value;
+                    if(the_guess == the_number){
+                        $("#response_div").text("You guessed it!");
+                    } else if (the_guess > the_number){
+                        $("#response_div").text("Too High!");
+                    } else if(the_guess < the_number){
+                        $("#response_div").text("Too Low!");
+                    }
+                }
+            });
+
+		</script>
+	</head>
+
+	<body onload="pick_number()">
+		<div id="content">
+			<input type="text" name="guess_input" id="guess_input">
+			<button>Submit</button>
+		</div>
+
+		<div id="response_div">
+
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
