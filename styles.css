@@ -14,6 +14,8 @@ body {
     padding: 10% 0 0 0;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
 h1, h2 {
@@ -49,14 +51,17 @@ h1, h2 {
 #game {
     height: 100vh;
     width: 100vw;
-    background-image: url(images/grass.gif);
-    background-repeat: repeat-x;
-    background-position: left-bottom;
+    background-color: white;
+    animation:  move-left 1s steps(10) 6;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    opacity: 0;
-    visibility: hidden;
+
+    /*background-repeat: repeat-x;*/
+    /*background-position: left bottom;*/
+    /*background-image: url(images/grass.gif);*/
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
 }
 
 #response_div {
@@ -67,20 +72,36 @@ h1, h2 {
     text-align: center;
 }
 
-/* -------------- game -------------- */
+/* -------------- katniss -------------- */
 
-#adam{
-    background:url(images/adam.png);
-    width: 120px;
-    height: 180px;
-    animation: walk-east 1.0s steps(8) infinite;
+#katniss {
+    background: url(images/spritestrip.png);
+    width: 256px;
+    height: 256px;
+    animation: walk-east 1s steps(6) infinite;
+    position: absolute;
+    bottom: 115px;
+    left: 50px;
 }
 @keyframes walk-east {
     from { background-position: 0px; }
-    to { background-position: -960px; }
+    to { background-position: -1536px; }
 }
 
+/* -------------- grass -------------- */
 
+#grass {
+    background: url(images/grass.gif);
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 236px;
+    animation: walk-east 1s steps(6) infinite;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
-
-
+@keyframes move-left {
+    from { background-position: 0px; }
+    to { background-position: -250px; }
+}

@@ -1,7 +1,7 @@
 var the_number = null;
 
 function pick_number(){
-    the_number = Math.ceil(Math.random()*100);
+    the_number = Math.ceil(Math.random()*23);
     return the_number;
 }
 
