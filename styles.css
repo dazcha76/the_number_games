@@ -1,16 +1,62 @@
+/* -------------- all -------------- */
+
 body {
-    background-color: red;
+    font-family: sans-serif;
 }
 
-div {
-    background-color: white;
-    border: 8px groove white;
+/* -------------- intro -------------- */
+
+#intro {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    margin: auto;
+    padding: 10% 0 0 0;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
-#content {
-    height: 300px;
-    width: 500px;
-    margin: 100px auto 0px auto;
+h1, h2 {
+    text-align: center;
+    color: rgb(248, 148, 59);
+}
+
+.start {
+    display: block;
+    margin: 50px auto 0 auto;
+    height: 50px;
+    width: 120px;
+    border: none;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
+    background: rgb(248, 148, 59);
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    cursor: pointer;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    height: 50%;
+}
+
+/* -------------- game -------------- */
+
+#game {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(images/grass.gif);
+    background-repeat: repeat-x;
+    background-position: left-bottom;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    opacity: 0;
+    visibility: hidden;
 }
 
 #response_div {
@@ -20,5 +66,21 @@ div {
     font-size: 80px;
     text-align: center;
 }
+
+/* -------------- game -------------- */
+
+#adam{
+    background:url(images/adam.png);
+    width: 120px;
+    height: 180px;
+    animation: walk-east 1.0s steps(8) infinite;
+}
+@keyframes walk-east {
+    from { background-position: 0px; }
+    to { background-position: -960px; }
+}
+
+
+
 
 

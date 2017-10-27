@@ -4,41 +4,36 @@
 		<title>The Number Games</title>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="main.js"></script>
 		<script>
 
-            var the_number = null;
 
-			function pick_number(){
-                the_number = Math.ceil(Math.random()*100);
-                return the_number;
-            }
-
-            $(document).ready(function(){
-                $("button").click(make_guess)
-
-                function make_guess(){
-                    var the_guess = document.getElementById("guess_input").value;
-                    if(the_guess == the_number){
-                        $("#response_div").text("You guessed it!");
-                    } else if (the_guess > the_number){
-                        $("#response_div").text("Too High!");
-                    } else if(the_guess < the_number){
-                        $("#response_div").text("Too Low!");
-                    }
-                }
-            });
 
 		</script>
 	</head>
 
 	<body onload="pick_number()">
-		<div id="content">
-			<input type="text" name="guess_input" id="guess_input">
-			<button>Submit</button>
+
+		<div id="intro">
+			<h1>Welcome to the 74th Annual Number Games!</h1>
+
+			<img class="logo" src="images/mockingjay.png">
+
+			<h2>Try to guess the correct number...<br>
+				... and may the odds be ever in your favor!</h2>
+
+			<button class="start">Start</button>
+
 		</div>
 
-		<div id="response_div">
+		<div id="game">
+			<div id="response_div">
 
+			</div>
+
+			<img src="images/katniss.png">
+			<input type="text" name="guess_input" id="guess_input">
+			<button class="shoot">Shoot</button>
 		</div>
 	</body>
 </html>
