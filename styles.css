@@ -4,6 +4,19 @@ body {
     font-family: sans-serif;
 }
 
+.start, .shoot {
+    display: block;
+    height: 50px;
+    width: 120px;
+    border: none;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 /* -------------- intro -------------- */
 
 #intro {
@@ -24,20 +37,10 @@ h1, h2 {
 }
 
 .start {
-    display: block;
     margin: 50px auto 0 auto;
-    height: 50px;
-    width: 120px;
-    border: none;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
     background: rgb(248, 148, 59);
-    font-size: 20px;
-    font-weight: 700;
+    box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
     color: black;
-    cursor: pointer;
 }
 
 .logo {
@@ -56,36 +59,50 @@ h1, h2 {
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-
-    /*background-repeat: repeat-x;*/
-    /*background-position: left bottom;*/
-    /*background-image: url(images/grass.gif);*/
+    color: rgb(139, 214, 72);
     /*opacity: 0;*/
     /*visibility: hidden;*/
 }
 
-#response_div {
-    height: 100px;
-    width: 550px;
-    margin: 30px auto;
-    font-size: 80px;
+#guess_div {
+    border: 3px solid rgb(139, 214, 72);
+    border-radius: 25px;
+    box-shadow: 15px 15px 15px rgba(159, 159, 159, 0.71);
+    height: 300px;
+    width: 400px;
+    margin: auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#guess_input {
+    display: block;
+    height: 50px;
+    width: 120px;
+    margin: 40px auto 0 auto;
+    font-size: 30px;
     text-align: center;
 }
 
-/* -------------- katniss -------------- */
-
-#katniss {
-    background: url(images/spritestrip.png);
-    width: 256px;
-    height: 256px;
-    animation: walk-east 1s steps(6) infinite;
-    position: absolute;
-    bottom: 115px;
-    left: 50px;
+#response_div1, #response_div2 {
+    height: 100px;
+    width: 550px;
+    margin: 25px auto 0 auto;
+    font-size: 60px;
+    text-align: center;
 }
-@keyframes walk-east {
-    from { background-position: 0px; }
-    to { background-position: -1536px; }
+
+.shoot {
+    margin: 20px auto 0 auto;
+    background: rgb(139, 214, 72);
+    box-shadow: inset -5px -5px rgba(114, 183, 66, 0.97);
+    color: white;
+}
+
+p {
+    text-align: center;
+    font-size: 40px;
+    padding: 5px 0 0 0;
 }
 
 /* -------------- grass -------------- */
@@ -95,7 +112,7 @@ h1, h2 {
     background-repeat: repeat-x;
     width: 100vw;
     height: 236px;
-    animation: walk-east 1s steps(6) infinite;
+    animation: move-left 0.8s steps(6) infinite;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -105,3 +122,44 @@ h1, h2 {
     from { background-position: 0px; }
     to { background-position: -250px; }
 }
+
+/* -------------- katniss -------------- */
+
+#katniss {
+    background: url(images/spritestrip.png);
+    width: 256px;
+    height: 256px;
+    animation: walk-east 0.8s steps(6) infinite;
+    position: absolute;
+    bottom: 115px;
+    left: 50px;
+}
+@keyframes walk-east {
+    from { background-position: 0px; }
+    to { background-position: -1536px; }
+}
+
+/* -------------- arrow -------------- */
+
+#arrow {
+    background: url(images/arrow.png);
+    height: 34px;
+    width: 160px;
+    position: absolute;
+    bottom: 180px;
+    left: 150px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
