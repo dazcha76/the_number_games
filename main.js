@@ -13,13 +13,12 @@ $(document).ready(function(){
             "opacity": "1",
             "visibility": "visible"
         });
+        setTimeout(show_input, 4000);
+
+        cato_arrives();
     });
 
     // show input
-
-    setTimeout(show_input, 4000);
-
-    cato_arrives();
 
     function show_input(){
         $("#guess_div").css({
@@ -34,6 +33,8 @@ $(document).ready(function(){
     // hide input
 
     function hide_input(){
+        // cato_leaves();
+
         $("#guess_div").css({
             opacity: 0,
             visibility: "hidden"});
@@ -43,6 +44,8 @@ $(document).ready(function(){
         $("#grass").css("animation", "move-left 0.8s steps(6) infinite");
 
         setTimeout(show_input, 4000);
+
+        cato_arrives();
     }
 
     // cato arrives
@@ -63,6 +66,7 @@ $(document).ready(function(){
     }
 
     // cato leaves
+    // have to fix flickering glitch
 
     function cato_leaves(){
         var elem = document.getElementById("cato");
@@ -77,10 +81,6 @@ $(document).ready(function(){
                 elem.style.left = -pos + 'px';
             }
         }
-    }
-
-    function cato_leaves(){
-
     }
 
     // shoot arrow

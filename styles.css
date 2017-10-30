@@ -33,11 +33,11 @@ body {
     width: 100vw;
     background-color: black;
     margin: auto;
-    padding: 10% 0 0 0;
+    padding: 3% 0 0 0;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 h1, h2 {
@@ -45,8 +45,16 @@ h1, h2 {
     color: rgb(248, 148, 59);
 }
 
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
 .start {
-    margin: 50px auto 0 auto;
+    margin: 40px auto 0 auto;
     background: rgb(248, 148, 59);
     box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
     color: black;
@@ -55,7 +63,7 @@ h1, h2 {
 .logo {
     display: block;
     margin: auto;
-    height: 50%;
+    height: 45%;
 }
 
 /* -------------- game -------------- */
@@ -64,13 +72,13 @@ h1, h2 {
     height: 100vh;
     width: 100vw;
     background-color: white;
-    animation:  move-left 1s steps(10) 6;
+    animation: move-left 1s steps(10) 6;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     color: rgb(139, 214, 72);
-    /*opacity: 0;*/
-    /*visibility: hidden;*/
+    opacity: 0;
+    visibility: hidden;
 }
 
 #guess_div {
