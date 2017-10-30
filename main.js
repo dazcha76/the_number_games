@@ -87,7 +87,12 @@ $(document).ready(function(){
 
     $(".shoot").click(function make_guess(){
         var the_guess = document.getElementById("guess_input").value;
-        if(the_guess == the_number){
+        if(the_guess > 23 || the_guess < 1 || isNaN(the_guess)) {
+            $("#response_div1").text("That is not a valid number!");
+            $("#response_div2").text("Try again.");
+            setTimeout(hide_input, 2000);
+        }
+        else if(the_guess == the_number){
             arrow_hit();
             $("#response_div1").text("You are the victor!");
             $("#response_div2").text("");
@@ -96,7 +101,7 @@ $(document).ready(function(){
             $("#response_div1").text("You missed!");
             $("#response_div2").text("Try shooting lower.");
             setTimeout(hide_input, 2000);
-        } else if(the_guess < the_number) {
+        } else if(the_guess < the_number && the_guess > 0) {
             arrow_down();
             $("#response_div1").text("You missed!");
             $("#response_div2").text("Try shooting higher.");
