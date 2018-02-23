@@ -55,11 +55,11 @@ $(document).ready(function(){
         var pos = -2050;
         var timer = setInterval(frame, -100);
         function frame() {
-            if (pos == -1000) {
-                clearInterval(id);
+            if (pos == -1120) {
+                clearInterval(timer);
             } else {
                 pos++;
-                elem.style.bottom = '100px';
+                // elem.style.bottom = '100px';
                 elem.style.left = -pos + 'px';
             }
         }

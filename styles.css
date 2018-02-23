@@ -126,10 +126,10 @@ p {
 /* -------------- grass -------------- */
 
 #grass {
-    background: url(images/grass.gif);
+    background: url(images/grass.jpg);
     background-repeat: repeat-x;
-    width: 100vw;
-    height: 236px;
+    width: 206vw;
+    height: 202px;
     animation: move-left 0.8s steps(6) infinite;
     position: absolute;
     bottom: 0;
@@ -149,7 +149,7 @@ p {
     height: 256px;
     animation: walk-east 0.8s steps(6) infinite;
     position: absolute;
-    bottom: 115px;
+    bottom: 123px;
     left: 50px;
 }
 
@@ -204,18 +204,13 @@ p {
 #cato {
     background: url(images/cato.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     width: 275px;
     height: 275px;
     position: absolute;
-    bottom: 100px;
-    left: 1500px;
+    bottom: 123px;
+    left: 1800px;
 }
-
-
-
-
-
 
 
 
