@@ -9,6 +9,7 @@ function pick_number(){
 $(document).ready(function(){
 
     $(".start").click(function fade_intro(){
+        document.getElementById("welcome").pause();
         document.getElementById("good_luck").play();
         $("#game").css({
             "opacity": "1",
@@ -19,7 +20,7 @@ $(document).ready(function(){
         cato_arrives();
     });
 
-    // show input
+    // show guess input field, katniss stops
 
     function show_input(){
         $("#guess_div").css({

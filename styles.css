@@ -81,6 +81,8 @@ h2 {
     color: rgb(139, 214, 72);
     opacity: 0;
     visibility: hidden;
+    -webkit-transition: opacity 5s, visibility 5s;
+    transition: opacity 5s, visibility 5s;
 }
 
 #guess_div {
