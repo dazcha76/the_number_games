@@ -1,4 +1,3 @@
-
 var the_number = null;
 
 function pick_number(){
