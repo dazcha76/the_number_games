@@ -10,16 +10,28 @@
 
 	<body onload="pick_number()">
 
+		<audio id="welcome">
+			<!--<source src="horse.ogg" type="audio/ogg">-->
+			<source src="sounds/welcome.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
+		<audio id="good_luck">
+			<!--<source src="horse.ogg" type="audio/ogg">-->
+			<source src="sounds/the_odds.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
 		<div id="intro">
 			<h1>Welcome to the 74th Annual <br> Number Games!</h1>
 
 			<img class="logo" src="images/mockingjay.png">
 
-			<h2>Guess the correct number (1-23) to survive ...<br>
-				... and may the odds be <i>ever</i> in your favor!</h2>
+			<h2>Kill the tributes by guessing the correct number and win! <br>
+			You have 5 chances to guess the right number between 1-23. <br>
+			Are you ready to enter the arena?</h2>
 
-			<button class="start">Start</button>
-
+			<button class="start">Yes</button>
 		</div>
 
 		<div id="game">

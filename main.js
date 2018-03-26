@@ -1,6 +1,7 @@
-var the_number = null;
+let the_number = null;
 
 function pick_number(){
+    document.getElementById("welcome").play();
     the_number = Math.ceil(Math.random()*23);
     return the_number;
 }
@@ -8,6 +9,7 @@ function pick_number(){
 $(document).ready(function(){
 
     $(".start").click(function fade_intro(){
+        document.getElementById("good_luck").play();
         $("#game").css({
             "opacity": "1",
             "visibility": "visible"
