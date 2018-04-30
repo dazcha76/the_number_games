@@ -1,14 +1,24 @@
-
-var the_number = null;
+let the_number = null;
 
 function pick_number(){
+    document.getElementById("welcome").play();
     the_number = Math.ceil(Math.random()*23);
     return the_number;
+}
+
+function welcome(){
+    document.getElementById("welcome").play();
+}
+
+function start(){
+    document.getElementById("good_luck").play();
 }
 
 $(document).ready(function(){
 
     $(".start").click(function fade_intro(){
+        document.getElementById("welcome").pause();
+        document.getElementById("good_luck").play();
         $("#game").css({
             "opacity": "1",
             "visibility": "visible"
@@ -18,7 +28,7 @@ $(document).ready(function(){
         cato_arrives();
     });
 
-    // show input
+    // show guess input field, katniss stops
 
     function show_input(){
         $("#guess_div").css({

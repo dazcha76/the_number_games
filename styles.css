@@ -10,18 +10,19 @@
 
 body {
     font-family: 'BankGothic', sans-serif;
+    overflow: hidden;
 }
 
 .start, .shoot {
     display: block;
-    height: 50px;
-    width: 120px;
+    height: 6.5vh;
+    width: 10vw;
     border: none;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 2.5vw;
+    font-weight: 900;
     cursor: pointer;
     font-family: 'BankGothic', sans-serif;
 }
@@ -33,10 +34,10 @@ body {
     width: 100vw;
     background-color: black;
     margin: auto;
-    padding: 3% 0 0 0;
+    padding: 3% 0;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    opacity: 1;
+    top: 0;
+    left: 0;
     visibility: visible;
 }
 
@@ -46,15 +47,17 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 3vw;
+    margin-top: 0;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 2.5vw;
+    padding: 0 10vw;
 }
 
 .start {
-    margin: 40px auto 0 auto;
+    margin: 2% auto 0 auto;
     background: rgb(248, 148, 59);
     box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
     color: black;
@@ -62,8 +65,8 @@ h2 {
 
 .logo {
     display: block;
-    margin: auto;
-    height: 45%;
+    margin: -1% auto 0 auto;
+    height: 50vh;
 }
 
 /* -------------- game -------------- */
@@ -79,6 +82,9 @@ h2 {
     color: rgb(139, 214, 72);
     opacity: 0;
     visibility: hidden;
+    -webkit-transition: opacity 5s, visibility 5s;
+    transition: opacity 5s, visibility 5s;
+    overflow: hidden;
 }
 
 #guess_div {
