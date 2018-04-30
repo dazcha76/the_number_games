@@ -6,6 +6,14 @@ function pick_number(){
     return the_number;
 }
 
+function welcome(){
+    document.getElementById("welcome").play();
+}
+
+function start(){
+    document.getElementById("good_luck").play();
+}
+
 $(document).ready(function(){
 
     $(".start").click(function fade_intro(){

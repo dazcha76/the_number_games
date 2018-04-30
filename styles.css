@@ -84,6 +84,7 @@ h2 {
     visibility: hidden;
     -webkit-transition: opacity 5s, visibility 5s;
     transition: opacity 5s, visibility 5s;
+    overflow: hidden;
 }
 
 #guess_div {
