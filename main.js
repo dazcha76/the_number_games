@@ -6,13 +6,8 @@ function pick_number(){
     return the_number;
 }
 
-function welcome(){
-    document.getElementById("welcome").play();
-}
-
-function start(){
-    document.getElementById("good_luck").play();
-}
+let count = 0;
+let lives = 5;
 
 $(document).ready(function(){
 
@@ -98,25 +93,41 @@ $(document).ready(function(){
     $(".shoot").click(function make_guess(){
         var the_guess = document.getElementById("guess_input").value;
         if(the_guess > 23 || the_guess < 1 || isNaN(the_guess)) {
-            $("#response_div1").text("That is not a valid number!");
-            $("#response_div2").text("Try again.");
-            setTimeout(hide_input, 2000);
+            count++;
+            if(count === 5){
+                $("#response_div1").text("You lose!");
+            } else {
+                $("#response_div1").text("That is not a valid number!");
+                $("#response_div2").text("Try again.");
+                setTimeout(hide_input, 2000);
+            }
         }
-        else if(the_guess == the_number){
+        else if(the_guess === the_number){
             arrow_hit();
             $("#response_div1").text("You are the victor!");
             $("#response_div2").text("");
         } else if (the_guess > the_number){
-            arrow_up();
-            $("#response_div1").text("You missed!");
-            $("#response_div2").text("Try shooting lower.");
-            setTimeout(hide_input, 2000);
+            count++;
+            if(count === 5){
+                $("#response_div1").text("You lose!");
+            } else {
+                arrow_up();
+                $("#response_div1").text("You missed!");
+                $("#response_div2").text("Try shooting lower.");
+                setTimeout(hide_input, 2000);
+            }
         } else if(the_guess < the_number && the_guess > 0) {
-            arrow_down();
-            $("#response_div1").text("You missed!");
-            $("#response_div2").text("Try shooting higher.");
-            setTimeout(hide_input, 2000);
+            count++;
+            if(count === 5){
+                $("#response_div1").text("You lose!");
+            } else {
+                arrow_down();
+                $("#response_div1").text("You missed!");
+                $("#response_div2").text("Try shooting higher.");
+                setTimeout(hide_input, 2000);
+            }
         }
+        console.log(count);
     });
 
     // arrow goes up
@@ -131,7 +142,7 @@ $(document).ready(function(){
         var timer = setInterval(frame, -100);
         function frame() {
             if (pos == 1500) {
-                clearInterval(id);
+                clearInterval(timer);
             } else {
                 pos++;
                 elem.style.top = -pos/2 + 'px';
@@ -152,7 +163,7 @@ $(document).ready(function(){
         var timer = setInterval(frame, -100);
         function frame() {
             if (pos == 1500) {
-                clearInterval(id);
+                clearInterval(timer);
             } else {
                 pos++;
                 elem.style.top = pos/2 + 'px';
@@ -173,7 +184,7 @@ $(document).ready(function(){
         var timer = setInterval(frame, -100);
         function frame() {
             if (pos == 1000) {
-                clearInterval(id);
+                clearInterval(timer);
             } else {
                 pos++;
                 elem.style.top = '0px';
