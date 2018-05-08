@@ -1,14 +1,7 @@
 let the_number = null;
-
-function pick_number(){
-    document.getElementById("welcome").play();
-    the_number = Math.ceil(Math.random()*23);
-    console.log(the_number);
-    return the_number;
-}
-
 let count = 0;
 let lives = 5;
+let tribute_randomnizer = Math.floor(Math.random()*4);
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -36,19 +29,32 @@ let tributes = [
     }
 ];
 
-let tribute_randomnizer = Math.floor(Math.random()*4);
+function pick_number(){
+        document.getElementById("welcome").play();
+        the_number = Math.ceil(Math.random()*23);
+        console.log(the_number);
+        return the_number;
+}
 
 $(document).ready(function(){
 
-    $(".start").click(function fade_intro(){
-        document.getElementById("welcome").pause();
-        document.getElementById("good_luck").play();
+    function remove_intro(){
         $("#game").css({
             "opacity": "1",
             "visibility": "visible"
         });
-        setTimeout(show_input, 4000);
+    }
 
+    function running_sound(){
+        document.getElementById("running").play();
+    }
+
+    $(".start").click(function welcome(){
+        document.getElementById("welcome").pause();
+        document.getElementById("good_luck").play();
+        setTimeout(remove_intro, 4300);
+        setTimeout(running_sound, 4500);
+        setTimeout(show_input, 8000);
         tribute_arrives();
     });
 
@@ -58,10 +64,11 @@ $(document).ready(function(){
         $("#guess_div").css({
             opacity: 1,
             visibility: "visible"});
-        $("#katniss").css("animation", "walk-east 0.8s steps(6) 0");
+        $("#katniss").css("animation", "walk-east 0.7s steps(6) 0");
         $("#grass").css("animation", "move-left 0.8s steps(6) 0");
         the_guess = document.getElementById("guess_input").value = null;
         the_guess = document.getElementById("guess_input").focus();
+        document.getElementById("running").pause();
     }
 
     // hide input
@@ -76,10 +83,9 @@ $(document).ready(function(){
         $("#response_div2").text("");
         $("#katniss").css("animation", "walk-east 0.8s steps(6) infinite");
         $("#grass").css("animation", "move-left 0.8s steps(6) infinite");
-
         setTimeout(show_input, 4000);
-
         tribute_arrives();
+        document.getElementById("running").play();
     }
 
     // tribute arrives
@@ -123,6 +129,7 @@ $(document).ready(function(){
     $(".shoot").click(function make_guess(){
         var the_guess = document.getElementById("guess_input").value;
         count++;
+        // document.getElementById("swoosh").play();
         if(the_guess > 23 || the_guess < 1 || isNaN(the_guess)) {
             if(count === 5){
                 $("#response_div1").text("You lose!");
@@ -132,6 +139,7 @@ $(document).ready(function(){
                 setTimeout(hide_input, 2000);
             }
         }
+
         else if(the_guess === the_number){
             arrow_hit();
             $("#response_div1").text("You are the victor!");
@@ -179,6 +187,7 @@ $(document).ready(function(){
                 elem.style.left = pos + 'px';
             }
         }
+        document.getElementById("swoosh").play();
     }
 
     // arrow goes down
@@ -200,11 +209,13 @@ $(document).ready(function(){
                 elem.style.left = pos + 'px';
             }
         }
+        document.getElementById("swoosh").play();
     }
 
     // arrow goes straight
 
     function arrow_hit(){
+        document.getElementById("swoosh").play();
         $("#arrow").css({
             "opacity": "1",
             "visibility": "visible"
@@ -221,6 +232,7 @@ $(document).ready(function(){
                 elem.style.left = pos + 'px';
             }
         }
+
     }
 
 });

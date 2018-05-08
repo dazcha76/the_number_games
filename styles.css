@@ -82,8 +82,6 @@ h2 {
     color: rgb(139, 214, 72);
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: opacity 5s, visibility 5s;
-    transition: opacity 5s, visibility 5s;
     overflow: hidden;
 }
 
@@ -153,7 +151,7 @@ p {
     background: url(images/katniss1.png);
     width: 256px;
     height: 256px;
-    animation: walk-east 0.8s steps(6) infinite;
+    animation: walk-east 0.7s steps(6) infinite;
     position: absolute;
     bottom: 123px;
     left: 60px;
