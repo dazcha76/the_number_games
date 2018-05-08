@@ -10,11 +10,31 @@ function pick_number(){
 let count = 0;
 let lives = 5;
 let tributes = [
-                "images/cato.png",
-                "images/clove.png",
-                "images/glimmer.png",
-                "images/marvel.png"
-                ];
+    {
+        'background': 'url("images/cato.png")',
+        'width': '180px',
+        'height': '250px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/clove.png")',
+        'width': '169px',
+        'height': '210px',
+        'bottom': '126px'
+    },
+    {
+        'background': 'url("images/glimmer.png")',
+        'width': '145px',
+        'height': '210px',
+        'bottom': '126px'
+    },
+    {
+        'background': 'url("images/marvel.png")',
+        'width': '195px',
+        'height': '225px',
+        'bottom': '125px'
+    }
+];
 
 let tribute_randomnizer = Math.floor(Math.random()*4);
 
@@ -66,15 +86,15 @@ $(document).ready(function(){
 
     function tribute_arrives(){
         var elem = document.getElementById("tribute");
-        $("#tribute").css("background", `url(${tributes[tribute_randomnizer]})`);
+        $("#tribute").css(tributes[tribute_randomnizer]);
         var pos = -1800;
         var timer = setInterval(frame, -100);
         function frame() {
-            if (pos == -1280) {
+            if (pos == -1150) {
                 clearInterval(timer);
             } else {
                 pos++;
-                elem.style.bottom = '100px';
+                // elem.style.bottom = '100px';
                 elem.style.left = -pos + 'px';
             }
         }

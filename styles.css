@@ -208,13 +208,9 @@ p {
 /* -------------- boy -------------- */
 
 #tribute {
-    /*background: url(images/cato.png);*/
     background-repeat: no-repeat;
     background-size: contain;
-    width: 275px;
-    height: 200px;
     position: absolute;
-    bottom: 123px;
     left: 1800px;
 }
 
