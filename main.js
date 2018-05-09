@@ -1,7 +1,6 @@
 let the_number = null;
 let count = 0;
 let lives = 5;
-let tribute_randomnizer = Math.floor(Math.random()*4);
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -58,13 +57,15 @@ $(document).ready(function(){
         tribute_arrives();
     });
 
+    $(".hearts").append("<i>favorite</i>").addClass("material-icons")
+
     // show guess input field, katniss stops
 
     function show_input(){
         $("#guess_div").css({
             opacity: 1,
             visibility: "visible"});
-        $("#katniss").css("animation", "walk-east 0.7s steps(6) 0");
+        $("#katniss").css("animation", "walk-east 0.6s steps(6) 0");
         $("#grass").css("animation", "move-left 0.8s steps(6) 0");
         the_guess = document.getElementById("guess_input").value = null;
         the_guess = document.getElementById("guess_input").focus();
@@ -92,7 +93,7 @@ $(document).ready(function(){
 
     function tribute_arrives(){
         var elem = document.getElementById("tribute");
-        $("#tribute").css(tributes[tribute_randomnizer]);
+        $("#tribute").css(tributes[Math.floor(Math.random()*4)]);
         var pos = -1800;
         var timer = setInterval(frame, -100);
         function frame() {
@@ -115,7 +116,7 @@ $(document).ready(function(){
         var timer = setInterval(frame, -100);
         function frame() {
             if (pos == 500) {
-                clearInterval(id);
+                clearInterval(timer);
             } else {
                 pos++;
                 elem.style.bottom = '100px';
@@ -142,6 +143,7 @@ $(document).ready(function(){
 
         else if(the_guess === the_number){
             arrow_hit();
+           
             $("#response_div1").text("You are the victor!");
             $("#response_div2").text("");
         } else if (the_guess > the_number){
@@ -150,6 +152,7 @@ $(document).ready(function(){
                 $("#response_div1").text("You lose!");
             } else {
                 arrow_up();
+             
                 $("#response_div1").text("You missed!");
                 $("#response_div2").text("Try shooting lower.");
                 setTimeout(hide_input, 2000);
@@ -160,6 +163,7 @@ $(document).ready(function(){
                 $("#response_div1").text("You lose!");
             } else {
                 arrow_down();
+                
                 $("#response_div1").text("You missed!");
                 $("#response_div2").text("Try shooting higher.");
                 setTimeout(hide_input, 2000);
@@ -240,3 +244,7 @@ $(document).ready(function(){
 
 
 
+
+
+
+      
