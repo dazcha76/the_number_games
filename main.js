@@ -1,5 +1,4 @@
 let the_number = null;
-let count = 0;
 let lives = 5;
 let tributes = [
     {
@@ -42,6 +41,7 @@ $(document).ready(function(){
             "opacity": "1",
             "visibility": "visible"
         });
+        display_hearts();
     }
 
     function running_sound(){
@@ -54,10 +54,19 @@ $(document).ready(function(){
         setTimeout(remove_intro, 4300);
         setTimeout(running_sound, 4500);
         setTimeout(show_input, 8000);
-        tribute_arrives();
+        setTimeout(tribute_arrives, 4500);
     });
 
-    $(".hearts").append("<i>favorite</i>").addClass("material-icons")
+    function display_hearts(){
+        for(var i = 0; i < lives; i++){
+            $(".hearts").append("<i>favorite</i>");
+            $("i").addClass("material-icons");
+        }
+    }
+
+    function remove_hearts(){
+        $("i").remove();
+    }
 
     // show guess input field, katniss stops
 
@@ -129,10 +138,10 @@ $(document).ready(function(){
 
     $(".shoot").click(function make_guess(){
         var the_guess = document.getElementById("guess_input").value;
-        count++;
+        lives--;
         // document.getElementById("swoosh").play();
         if(the_guess > 23 || the_guess < 1 || isNaN(the_guess)) {
-            if(count === 5){
+            if(lives === 0){
                 $("#response_div1").text("You lose!");
             } else {
                 $("#response_div1").text("That is not a valid number!");
@@ -148,7 +157,7 @@ $(document).ready(function(){
             $("#response_div2").text("");
         } else if (the_guess > the_number){
 
-            if(count === 5){
+            if(lives === 0){
                 $("#response_div1").text("You lose!");
             } else {
                 arrow_up();
@@ -159,7 +168,7 @@ $(document).ready(function(){
             }
         } else if(the_guess < the_number && the_guess > 0) {
 
-            if(count === 5){
+            if(lives === 0){
                 $("#response_div1").text("You lose!");
             } else {
                 arrow_down();
@@ -169,7 +178,8 @@ $(document).ready(function(){
                 setTimeout(hide_input, 2000);
             }
         }
-        console.log(count);
+        remove_hearts();
+        display_hearts();
     });
 
     // arrow goes up

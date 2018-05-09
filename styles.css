@@ -212,5 +212,10 @@ p {
     left: 1800px;
 }
 
+/* -------------- lives -------------- */
 
-
+.material-icons {
+    color: red;
+    font-size: 40px;
+    padding: 1% 0 0 1%;
+}
