@@ -36,18 +36,12 @@ function pick_number(){
 $(document).ready(function(){
 
     function remove_intro(){
-        $("#game").css({
-            "opacity": "1",
-            "visibility": "visible"
-        });
+        $("#game").css({"visibility": "visible"});
         display_hearts();
     }
 
     function game_over(){
-        $("#game_over").css({
-            "opacity": "1",
-            "visibility": "visible"
-        });
+        $("#game_over").css({"visibility": "visible"});
         document.getElementById("lose").play();
     }
 
@@ -62,6 +56,19 @@ $(document).ready(function(){
         setTimeout(running_sound, 4500);
         setTimeout(show_input, 7000);
         setTimeout(tribute_arrives, 4500);
+    });
+
+    $(".play").click(function play_again(){
+        lives = 5;
+        display_hearts();
+        hide_input();
+        document.getElementById("lose").pause();
+        $("#game_over").css({"visibility": "hidden"});
+        $("#game").css({"visibility": "visible"});
+    });
+
+    $(".quit").click(function quit_game(){
+        
     });
 
     function display_hearts(){
@@ -91,7 +98,7 @@ $(document).ready(function(){
     // hide input
 
     function hide_input(){
-        // tribute_leaves();
+        tribute_leaves();
 
         $("#guess_div").css({
             opacity: 0,

@@ -238,7 +238,7 @@ p {
 .fallen {
     display: block;
     margin: 0 auto 20px auto;
-    height: 50vh;
+    height: 60vh;
 }
 
 button.play, button.quit {
@@ -257,8 +257,15 @@ button.play, button.quit {
     font-weight: 900;
     cursor: pointer;
     font-family: 'BankGothic', sans-serif;
+    margin: 10px;
 }
 
-.game-over p {
+.game-over > p {
     color: rgb(44, 76, 99);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
