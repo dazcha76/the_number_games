@@ -35,20 +35,6 @@ function pick_number(){
 
 $(document).ready(function(){
 
-    function remove_intro(){
-        $("#game").css({"visibility": "visible"});
-        display_hearts();
-    }
-
-    function game_over(){
-        $("#game_over").css({"visibility": "visible"});
-        document.getElementById("lose").play();
-    }
-
-    function running_sound(){
-        document.getElementById("running").play();
-    }
-
     $(".start").click(function welcome(){
         document.getElementById("welcome").pause();
         document.getElementById("good_luck").play();
@@ -71,6 +57,20 @@ $(document).ready(function(){
         
     });
 
+    function remove_intro(){
+        $("#game").css({"visibility": "visible"});
+        display_hearts();
+    }
+
+    function game_over(){
+        $("#game_over").css({"visibility": "visible"});
+        document.getElementById("lose").play();
+    }
+
+    function running_sound(){
+        document.getElementById("running").play();
+    }
+
     function display_hearts(){
         for(var i = 0; i < lives; i++){
             $(".hearts").append("<i>favorite</i>");
@@ -90,9 +90,9 @@ $(document).ready(function(){
             visibility: "visible"});
         $("#katniss").css("animation", "walk-east 0.6s steps(6) 0");
         $("#grass").css("animation", "move-left 0.8s steps(6) 0");
+        document.getElementById("running").pause();
         the_guess = document.getElementById("guess_input").value = null;
         the_guess = document.getElementById("guess_input").focus();
-        document.getElementById("running").pause();
     }
 
     // hide input
