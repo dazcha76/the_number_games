@@ -3,7 +3,14 @@
 
 @font-face {
     font-family: 'BankGothic';
-    src: url(BankGothic.ttf);
+    src: url(fonts/BankGothic.ttf);
+    font-style: bold;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Graffiti';
+    src: url(fonts/adrip.ttf);
     font-style: bold;
     font-weight: bold;
 }
@@ -148,7 +155,7 @@ p {
 /* -------------- katniss -------------- */
 
 #katniss {
-    background: url(images/katniss1.png);
+    background: url(images/katniss.png);
     width: 256px;
     height: 256px;
     animation: walk-east 0.6s steps(6) infinite;
@@ -268,4 +275,29 @@ button.play, button.quit {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+/* -------------- quit -------------- */
+
+#quit {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.rebellion {
+    display: block;
+    margin: -11vh auto;
+    height: 80vh;
+}
+
+.red {
+    font-family: 'Graffiti', sans-serif;
+    color: red;
+    font-size: 15vh;
+    opacity:0.999;
 }

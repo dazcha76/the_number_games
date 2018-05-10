@@ -54,7 +54,7 @@ $(document).ready(function(){
     });
 
     $(".quit").click(function quit_game(){
-        
+        $("#quit").css({"visibility": "visible"});
     });
 
     function remove_intro(){
