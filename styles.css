@@ -56,7 +56,7 @@ h2 {
     padding: 0 10vw;
 }
 
-.start {
+button.start {
     margin: 2% auto 0 auto;
     background: rgb(248, 148, 59);
     box-shadow: inset -5px -5px rgba(163, 89, 43, 0.98);
@@ -80,7 +80,7 @@ h2 {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     color: rgb(139, 214, 72);
-    opacity: 0;
+
     visibility: hidden;
     overflow: hidden;
 }
@@ -114,7 +114,7 @@ h2 {
     text-align: center;
 }
 
-.shoot {
+button.shoot {
     margin: 20px auto 0 auto;
     background: rgb(139, 214, 72);
     box-shadow: inset -5px -5px rgba(114, 183, 66, 0.97);
@@ -216,6 +216,49 @@ p {
 
 .material-icons {
     color: red;
-    font-size: 40px;
+    font-size: 60px;
+}
+
+.material-icons:first-child {
     padding: 1% 0 0 1%;
+}
+
+/* -------------- game over -------------- */
+
+#game_over {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fallen {
+    display: block;
+    margin: 0 auto 20px auto;
+    height: 50vh;
+}
+
+button.play, button.quit {
+    background: rgb(44, 76, 99);
+    box-shadow: inset -5px -5px rgba(24, 44, 66, 0.98);
+    color: black;
+
+    text-align: center;
+    height: 6.5vh;
+    width: 10vw;
+    border: none;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    font-size: 2.5vw;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'BankGothic', sans-serif;
+}
+
+.game-over p {
+    color: rgb(44, 76, 99);
 }

@@ -11,10 +11,13 @@
 
 	<body onload="pick_number()">
 
-		<audio id="welcome" src="sounds/welcome.mp3"></audio>
+		<audio id="welcome" src="sounds/welcome.mp3" autoplay></audio>
 		<audio id="good_luck" src="sounds/the_odds.mp3"></audio>
+
 		<audio id="running" src="sounds/running.mp3"></audio>
 		<audio id="swoosh" src="sounds/swoosh.mp3"></audio>
+
+		<audio id="lose" src="sounds/rues_whistle.mp3"></audio>
 
 		<div id="intro">
 			<h1>Welcome to the 74th Annual <br> Number Games!</h1>
@@ -51,6 +54,13 @@
 			<div id="tribute"></div>
 
 			<div id="katniss"></div>
+
+			<div id="game_over">
+				<p>You Lose!</p>
+				<img class="fallen" src="images/katniss_fallen.png">
+				<button class="play">Play</button>
+				<button class="quit">Quit</button>
+			</div>
 
 		</div>
 	</body>

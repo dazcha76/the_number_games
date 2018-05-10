@@ -28,10 +28,9 @@ let tributes = [
 ];
 
 function pick_number(){
-        document.getElementById("welcome").play();
-        the_number = Math.ceil(Math.random()*23);
-        console.log(the_number);
-        return the_number;
+    the_number = Math.ceil(Math.random()*23);
+    console.log(the_number);
+    return the_number;
 }
 
 $(document).ready(function(){
@@ -44,6 +43,14 @@ $(document).ready(function(){
         display_hearts();
     }
 
+    function game_over(){
+        $("#game_over").css({
+            "opacity": "1",
+            "visibility": "visible"
+        });
+        document.getElementById("lose").play();
+    }
+
     function running_sound(){
         document.getElementById("running").play();
     }
@@ -53,7 +60,7 @@ $(document).ready(function(){
         document.getElementById("good_luck").play();
         setTimeout(remove_intro, 4300);
         setTimeout(running_sound, 4500);
-        setTimeout(show_input, 8000);
+        setTimeout(show_input, 7000);
         setTimeout(tribute_arrives, 4500);
     });
 
@@ -93,7 +100,7 @@ $(document).ready(function(){
         $("#response_div2").text("");
         $("#katniss").css("animation", "walk-east 0.8s steps(6) infinite");
         $("#grass").css("animation", "move-left 0.8s steps(6) infinite");
-        setTimeout(show_input, 4000);
+        setTimeout(show_input, 2900);
         tribute_arrives();
         document.getElementById("running").play();
     }
@@ -159,6 +166,7 @@ $(document).ready(function(){
 
             if(lives === 0){
                 $("#response_div1").text("You lose!");
+                game_over();
             } else {
                 arrow_up();
              
@@ -170,6 +178,7 @@ $(document).ready(function(){
 
             if(lives === 0){
                 $("#response_div1").text("You lose!");
+                game_over();
             } else {
                 arrow_down();
                 
