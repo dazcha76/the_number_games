@@ -1,5 +1,5 @@
 let the_number = null;
-let lives = 5;
+let lives = 1;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -38,12 +38,14 @@ $(document).ready(function(){
         setTimeout(tribute_arrives, 4500);
     });
 
-    $(".play").click(function play_again(){
+    $(".play").click(function try_again(){
         lives = 5;
         pick_number();
         display_hearts();
         hide_input();
         document.getElementById("lose").pause();
+        $("#arrow").css({"visibility": "hidden"});
+        $("#you_win").css({"visibility": "hidden"});
         $("#you_lose").css({"visibility": "hidden"});
         $("#game").css({"visibility": "visible"});
     });
@@ -61,7 +63,9 @@ $(document).ready(function(){
             arrow_hit();
             $("#response_div1").text("");
             $("#response_div2").text("");
-            setTimeout(you_win, 4000);
+            setTimeout(blood, 4000)
+            setTimeout(you_win, 10000);
+            lives = 0;
         } else if(lives === 0){
             setTimeout(you_lose, 2000);
         } else {
@@ -90,13 +94,13 @@ function pick_number(){
     return the_number;
 }
 
-function running_sound(){
-    document.getElementById("running").play();
-}
-
 function remove_intro(){
     $("#game").css({"visibility": "visible"});
     display_hearts();
+}
+
+function running_sound(){
+    document.getElementById("running").play();
 }
 
 function display_hearts(){
@@ -108,15 +112,6 @@ function display_hearts(){
 
 function remove_hearts(){
     $("i").remove();
-}
-
-function you_win(){
-    $("#you_win").css({"visibility": "visible"});
-}
-
-function you_lose(){
-    $("#you_lose").css({"visibility": "visible"});
-    document.getElementById("lose").play();
 }
 
 function tribute_arrives(){
@@ -245,4 +240,24 @@ function arrow_hit(){
 
 }
 
-      
+function blood(){
+    $("#blood").css({
+        "animation": "playX 1s steps(3) 10, playY 3s steps(3) 10",
+        "visibility": "visible"
+    });
+}
+
+function you_win(){
+    $("#you_win").css({"visibility": "visible"});
+    document.getElementById("win").play();
+}
+
+function you_lose(){
+    $("#you_lose").css({"visibility": "visible"});
+    document.getElementById("lose").play();
+    setInterval(hologram, 2500);
+}
+
+function hologram(){
+    $(".fallen").css({"opacity": "1", "visibility": "visible"})
+}

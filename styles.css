@@ -168,8 +168,8 @@ p {
 }
 
 @keyframes walk-east {
-    from { background-position: 0px; }
-    to { background-position: -1536px; }
+    from {background-position: 0px;}
+    to {background-position: -1536px;}
 }
 
 /* -------------- arrow -------------- */
@@ -219,7 +219,29 @@ p {
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    left: 150vw;
+}
+
+/* -------------- blood -------------- */
+
+#blood {
+    background: url(images/blood.png);
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: playX 1s steps(3) 0, playY 3s steps(3) 0;
+    visibility: hidden;
+}
+
+@keyframes playX {
+    from {background-position: 0px;}
+    to {background-position: -1500px;}
+}
+
+@keyframes playY {
+    from {background-position: 0px;}
+    to {background-position: -1500px;}
 }
 
 /* -------------- lives -------------- */
@@ -242,11 +264,20 @@ p {
 #you_win {
     height: 100vh;
     width: 100vw;
-    background-color: yellow;
+    background-image: url(images/mockingjay.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
     visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.win_buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /* -------------- you lose -------------- */
@@ -254,6 +285,7 @@ p {
 #you_lose {
     height: 100vh;
     width: 100vw;
+    background-image: url("images/fallen_logo.png");
     background-color: black;
     visibility: hidden;
     position: absolute;
@@ -263,8 +295,11 @@ p {
 
 .fallen {
     display: block;
-    margin: 2vh auto;
+    margin: 4vh 95% 2vh 5%;
     height: 70vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 15s, visibility 15s;
 }
 
 button.play, button.quit {
@@ -290,7 +325,7 @@ button.play, button.quit {
     color: rgb(44, 76, 99);
 }
 
-.buttons {
+.lose_buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -17,7 +17,8 @@
 		<audio id="running" src="sounds/running.mp3"></audio>
 		<audio id="swoosh" src="sounds/swoosh.mp3"></audio>
 
-		<audio id="lose" src="sounds/rues_whistle.mp3"></audio>
+		<audio id="win" src="sounds/the_winners.mp3"></audio>
+		<audio id="lose" src="sounds/the_fallen.mp3"></audio>
 
 		<div id="intro">
 			<h1>Welcome to the 74th Annual <br> Number Games!</h1>
@@ -52,17 +53,22 @@
 			</div>
 
 			<div id="tribute"></div>
+			<div id="blood"></div>
 
 			<div id="katniss"></div>
 
 			<div id="you_win">
-				
+				<img class="winner" src="images/katniss_victor.png">
+				<div class="win_buttons">
+					<button class="play">Play Again</button>
+					<button class="quit">Quit</button>
+				</div>	
 			</div>
 
 			<div id="you_lose">
 				<p>You Lose!</p>
 				<img class="fallen" src="images/katniss_fallen.png">
-				<div class="buttons">
+				<div class="lose_buttons">
 					<button class="play">Retry</button>
 					<button class="quit">Quit</button>
 				</div>	
