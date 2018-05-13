@@ -1,29 +1,35 @@
 let the_number = null;
-let lives = 1;
+let lives = 5;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
-        'width': '180px',
-        'height': '250px',
+        'width': '215px',
+        'height': '273px',
         'bottom': '124px'
     },
     {
         'background': 'url("images/clove.png")',
-        'width': '169px',
-        'height': '210px',
-        'bottom': '126px'
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
     },
     {
         'background': 'url("images/glimmer.png")',
-        'width': '145px',
-        'height': '210px',
-        'bottom': '126px'
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
     },
     {
         'background': 'url("images/marvel.png")',
-        'width': '195px',
-        'height': '225px',
-        'bottom': '125px'
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/foxface.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
     }
 ];
 
@@ -40,6 +46,38 @@ $(document).ready(function(){
 
     $(".play").click(function try_again(){
         lives = 5;
+        tributes = [
+            {
+                'background': 'url("images/cato.png")',
+                'width': '215px',
+                'height': '273px',
+                'bottom': '124px'
+            },
+            {
+                'background': 'url("images/clove.png")',
+                'width': '215px',
+                'height': '273px',
+                'bottom': '124px'
+            },
+            {
+                'background': 'url("images/glimmer.png")',
+                'width': '215px',
+                'height': '273px',
+                'bottom': '124px'
+            },
+            {
+                'background': 'url("images/marvel.png")',
+                'width': '215px',
+                'height': '273px',
+                'bottom': '124px'
+            },
+            {
+                'background': 'url("images/foxface.png")',
+                'width': '215px',
+                'height': '273px',
+                'bottom': '124px'
+            }
+        ];
         pick_number();
         display_hearts();
         hide_input();
@@ -47,7 +85,9 @@ $(document).ready(function(){
         $("#arrow").css({"visibility": "hidden"});
         $("#you_win").css({"visibility": "hidden"});
         $("#you_lose").css({"visibility": "hidden"});
+        $(".fallen").removeAttr("style");
         $("#game").css({"visibility": "visible"});
+
     });
 
     $(".quit").click(function quit_game(){
@@ -116,7 +156,12 @@ function remove_hearts(){
 
 function tribute_arrives(){
     var elem = document.getElementById("tribute");
-    $("#tribute").css(tributes[Math.floor(Math.random()*4)]);
+    var randomizer = Math.floor(Math.random()*tributes.length);
+    $("#tribute").css(tributes[randomizer]);
+    
+    tributes.splice(randomizer, 1);
+    
+    
     var pos = -1800;
     var timer = setInterval(frame, -100);
     function frame() {
@@ -128,6 +173,7 @@ function tribute_arrives(){
             elem.style.left = -pos + 'px';
         }
     }
+
 }
 
 function show_input(){
@@ -255,7 +301,7 @@ function you_win(){
 function you_lose(){
     $("#you_lose").css({"visibility": "visible"});
     document.getElementById("lose").play();
-    setInterval(hologram, 2500);
+    setInterval(hologram, 1500);
 }
 
 function hologram(){
