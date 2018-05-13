@@ -83,11 +83,13 @@ $(document).ready(function(){
         hide_input();
         document.getElementById("lose").pause();
         $("#arrow").css({"visibility": "hidden"});
+        $("#blood").css({"visibility": "hidden"});
         $("#you_win").css({"visibility": "hidden"});
         $("#you_lose").css({"visibility": "hidden"});
         $(".fallen").removeAttr("style");
         $("#game").css({"visibility": "visible"});
-
+        $("#win_image").empty();
+        $("#lose_image").empty();
     });
 
     $(".quit").click(function quit_game(){
@@ -104,7 +106,7 @@ $(document).ready(function(){
             $("#response_div1").text("");
             $("#response_div2").text("");
             setTimeout(blood, 4000)
-            setTimeout(you_win, 10000);
+            setTimeout(you_win, 6000);
             lives = 0;
         } else if(lives === 0){
             setTimeout(you_lose, 2000);
@@ -295,15 +297,28 @@ function blood(){
 
 function you_win(){
     $("#you_win").css({"visibility": "visible"});
+    $("#win_image").append("<img>");
+        $("#win_image > img").addClass("winner").attr({"src": "images/katniss_victor.png"}).css({"opacity": "0",
+                                                                                                 "visibility": "hidden",
+                                                                                                 "transition": "opacity 8s, visibility 8s"});
     document.getElementById("win").play();
+    setInterval(winner, 1500);
 }
 
 function you_lose(){
     $("#you_lose").css({"visibility": "visible"});
+    $("#lose_image").append("<img>");
+    $("#lose_image > img").addClass("fallen").attr({"src": "images/katniss_fallen.png"}).css({"opacity": "0",
+                                                                                                 "visibility": "hidden",
+                                                                                                 "transition": "opacity 8s, visibility 8s"});
     document.getElementById("lose").play();
     setInterval(hologram, 1500);
 }
 
 function hologram(){
     $(".fallen").css({"opacity": "1", "visibility": "visible"})
+}
+
+function winner(){
+    $(".winner").css({"opacity": "1", "visibility": "visible"})
 }
