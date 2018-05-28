@@ -304,6 +304,10 @@ p {
     align-items: center;
 }
 
+.lose_image {
+  width: 40vw;
+}
+
 .fallen {
     margin-top: -11vh;
     height: 150vh;
