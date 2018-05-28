@@ -186,7 +186,7 @@ p {
     height: 34px;
     width: 160px;
     position: absolute;
-    bottom: 180px;
+    bottom: -100px;
     left: 135px;
     opacity: 0;
     visibility: hidden;
@@ -197,7 +197,7 @@ p {
     height: 64px;
     width: 168px;
     position: absolute;
-    bottom: 180px;
+    bottom: -100px;
     left: 135px;
     opacity: 0;
     visibility: hidden;
@@ -208,7 +208,7 @@ p {
     height: 64px;
     width: 168px;
     position: absolute;
-    bottom: 180px;
+    bottom: -100px;
     left: 135px;
     opacity: 0;
     visibility: hidden;
@@ -329,16 +329,21 @@ p {
     font-family: 'BankGothic', sans-serif;
 }
 
-.game-over > p {
-    color: rgb(44, 76, 99);
-}
-
 .lose_retry {
     margin-left: 10vw;
 }
 
 .lose_quit {
     margin-right: 10vw;
+}
+
+#you_lose p {
+    position: absolute;
+    top: 1vh;
+    left: 50;
+    font-size: 10vh;
+    color: rgb(44, 76, 99);
+    z-index: 1;
 }
 
 /* -------------- quit -------------- */

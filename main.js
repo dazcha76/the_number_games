@@ -105,23 +105,29 @@ $(document).ready(function(){
             arrow_hit();
             $("#response_div1").text("");
             $("#response_div2").text("");
-            setTimeout(blood, 4000)
-            setTimeout(you_win, 6000);
+            // setTimeout(blood, 4000)
+            setTimeout(you_win, 5000);
             lives = 0;
-        } else if(lives === 0){
-            setTimeout(you_lose, 2000);
         } else {
             if(the_guess > 23 || the_guess < 1 || isNaN(the_guess)){
                 $("#response_div1").text("That is not a valid number!");
                 $("#response_div2").text("Try again.");        
             } else if(the_guess > the_number){
                 arrow_up();
-                $("#response_div1").text("You missed!");
-                $("#response_div2").text("Try shooting lower.");
+                if(lives === 0){
+                    setTimeout(you_lose, 2000);
+                } else {
+                    $("#response_div1").text("You missed!");
+                    $("#response_div2").text("Try shooting lower.");
+                }
             } else if(the_guess < the_number){
                 arrow_down();
-                $("#response_div1").text("You missed!");
-                $("#response_div2").text("Try shooting higher.");
+                if(lives === 0){
+                    setTimeout(you_lose, 2000);
+                } else {
+                    $("#response_div1").text("You missed!");
+                    $("#response_div2").text("Try shooting higher.");
+                }
             }
             setTimeout(hide_input, 2000);
         }
@@ -240,7 +246,7 @@ function arrow_up(){
             elem.style.left = pos + 'px';
         }
     }
-    document.getElementById("swoosh").play();
+    // document.getElementById("swoosh").play();
 }
 
 // arrow goes down
@@ -262,7 +268,7 @@ function arrow_down(){
             elem.style.left = pos + 'px';
         }
     }
-    document.getElementById("swoosh").play();
+    // document.getElementById("swoosh").play();
 }
 
 // arrow goes straight
@@ -277,11 +283,11 @@ function arrow_hit(){
     var pos = 140;
     var timer = setInterval(frame, -100);
     function frame() {
-        if (pos == 1000) {
+        if (pos == 1160) {
             clearInterval(timer);
         } else {
             pos++;
-            elem.style.top = '0px';
+            elem.style.top = '90px';
             elem.style.left = pos + 'px';
         }
     }
