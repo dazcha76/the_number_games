@@ -1,39 +1,62 @@
 let the_number = null;
 let lives = 5;
 let tributes = [
+    {'background': 'url("images/cato.png")'},
+    {'background': 'url("images/clove.png")'},
+    {'background': 'url("images/glimmer.png")'},
+    {'background': 'url("images/marvel.png")'},
+    {'background': 'url("images/foxface.png")'}
+];
+
+let small_tributes = [
     {
-        'background': 'url("images/cato.png")',
-        'width': '215px',
-        'height': '273px',
+        'background': 'url("images/cato_small.png")',
+        'width': '108px',
+        'height': '137px',
         'bottom': '124px'
     },
     {
-        'background': 'url("images/clove.png")',
-        'width': '215px',
-        'height': '273px',
+        'background': 'url("images/clove_small.png")',
+        'width': '108px',
+        'height': '137px',
         'bottom': '124px'
     },
     {
-        'background': 'url("images/glimmer.png")',
-        'width': '215px',
-        'height': '273px',
+        'background': 'url("images/glimmer_small.png")',
+        'width': '108px',
+        'height': '137px',
         'bottom': '124px'
     },
     {
-        'background': 'url("images/marvel.png")',
-        'width': '215px',
-        'height': '273px',
+        'background': 'url("images/marvel_small.png")',
+        'width': '108px',
+        'height': '137px',
         'bottom': '124px'
     },
     {
-        'background': 'url("images/foxface.png")',
-        'width': '215px',
-        'height': '273px',
+        'background': 'url("images/foxface_small.png")',
+        'width': '108px',
+        'height': '137px',
         'bottom': '124px'
     }
 ];
 
 $(document).ready(function(){
+    console.log(window.orientation)
+
+    if(window.orientation === 90){
+        $("#katniss").css({
+            "background": "url(images/katniss_small.png)",
+            "height": "132px",
+            "width": "132px",
+            "bottom": "61px",
+            "animation": "small_walk-east"
+        });
+        $("#grass").css({
+            "background": "url(images/grass_small.jpg)",
+            "height": "103px",
+        });
+    } 
 
     $(".start").click(function welcome(){
         document.getElementById("welcome").pause();
@@ -47,36 +70,11 @@ $(document).ready(function(){
     $(".play").click(function try_again(){
         lives = 5;
         tributes = [
-            {
-                'background': 'url("images/cato.png")',
-                'width': '215px',
-                'height': '273px',
-                'bottom': '124px'
-            },
-            {
-                'background': 'url("images/clove.png")',
-                'width': '215px',
-                'height': '273px',
-                'bottom': '124px'
-            },
-            {
-                'background': 'url("images/glimmer.png")',
-                'width': '215px',
-                'height': '273px',
-                'bottom': '124px'
-            },
-            {
-                'background': 'url("images/marvel.png")',
-                'width': '215px',
-                'height': '273px',
-                'bottom': '124px'
-            },
-            {
-                'background': 'url("images/foxface.png")',
-                'width': '215px',
-                'height': '273px',
-                'bottom': '124px'
-            }
+            {'background': 'url("images/cato.png")'},
+            {'background': 'url("images/clove.png")'},
+            {'background': 'url("images/glimmer.png")'},
+            {'background': 'url("images/marvel.png")'},
+            {'background': 'url("images/foxface.png")'}
         ];
         pick_number();
         display_hearts();
@@ -166,8 +164,10 @@ function tribute_arrives(){
     var elem = document.getElementById("tribute");
     var randomizer = Math.floor(Math.random()*tributes.length);
     $("#tribute").css(tributes[randomizer]);
+    
     tributes.splice(randomizer, 1);
-    var pos = -1950;
+    
+    var pos = -1800;
     var timer = setInterval(frame, -100);
     function frame() {
         if (pos == -1150) {

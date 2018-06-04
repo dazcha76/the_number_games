@@ -20,18 +20,6 @@ body {
     overflow: hidden;
 }
 
-.start, .shoot {
-    display: block;
-    height: 6.5%;
-    min-width: 10%;
-    border: none;
-    border-radius: 25px;
-    font-size: 4vh;
-    font-weight: 900;
-    cursor: pointer;
-    font-family: 'BankGothic', sans-serif;
-}
-
 /*a:link, a:visited, a:active {
     border: none;
 }*/
@@ -73,6 +61,15 @@ h2 {
     background: rgb(248, 148, 59);
     box-shadow: inset -0.5vw -0.5vh rgba(163, 89, 43, 0.98);
     color: black;
+    display: block;
+    height: 6.5%;
+    min-width: 10%;
+    border: none;
+    border-radius: 25px;
+    font-size: 4vh;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'BankGothic', sans-serif;
 }
 
 .logo {
@@ -102,8 +99,8 @@ h2 {
     border: 0.5vw solid rgb(139, 214, 72);
     border-radius: 25px;
     box-shadow: 3vh 2vw 2vw rgba(159, 159, 159, 0.71);
-    height: 30vh;
-    width: 28vw;
+    height: 30%;
+    width: 28%;
     margin: 0 auto;
     opacity: 0;
     visibility: hidden;
@@ -125,6 +122,18 @@ h2 {
     margin: 1vh auto 1.5vh auto;
     font-size: 4vw;
     text-align: center;
+}
+
+.shoot {
+    display: block;
+    height: 20%;
+    min-width: 35%;
+    border: none;
+    border-radius: 25px;
+    font-size: 3vh;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: 'BankGothic', sans-serif;
 }
 
 button.shoot {
@@ -168,11 +177,17 @@ p {
     position: absolute;
     bottom: 123px;
     left: 60px;
+    z-index: 1;
 }
 
 @keyframes walk-east {
     from {background-position: 0px;}
     to {background-position: -1536px;}
+}
+
+@keyframes small_walk-east {
+    from {background-position: 0px;}
+    to {background-position: 1536px;}
 }
 
 /* -------------- arrow -------------- */
@@ -222,6 +237,9 @@ p {
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
+    width: 215px;
+    height: 273px;
+    bottom: 124px;
 }
 
 /* -------------- blood -------------- */
@@ -397,4 +415,47 @@ p {
     color: red;
     font-size: 15vh;
     opacity: 0.999;
+}
+
+/* -------------------- PORTRAIT OPTIONS -------------------- */
+
+.portrait {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    visibility: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3 {
+    font-size: 300%;
+    color: rgb(248, 148, 59);
+    margin: 0 0 5% 0;
+   /* text-align: center;*/
+}
+
+.portrait i {
+    color: rgb(248, 148, 59);
+    font-size: 50vmin;
+    -webkit-animation-name: rotate; 
+    animation-name: rotate;
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+   -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    margin-top: 10%;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(90deg)}
 }
