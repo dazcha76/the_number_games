@@ -166,11 +166,8 @@ function tribute_arrives(){
     var elem = document.getElementById("tribute");
     var randomizer = Math.floor(Math.random()*tributes.length);
     $("#tribute").css(tributes[randomizer]);
-    
     tributes.splice(randomizer, 1);
-    
-    
-    var pos = -1800;
+    var pos = -1950;
     var timer = setInterval(frame, -100);
     function frame() {
         if (pos == -1150) {
