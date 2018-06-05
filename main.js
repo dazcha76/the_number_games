@@ -61,7 +61,7 @@ $(document).ready(function(){
     $(".start").click(function welcome(){
         document.getElementById("welcome").pause();
         document.getElementById("good_luck").play();
-        // setTimeout(remove_intro, 4300);
+        setTimeout(remove_intro, 4300);
         remove_intro();
         setTimeout(running_sound, 4500);
         setTimeout(show_input, 7000);
