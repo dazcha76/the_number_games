@@ -50,7 +50,7 @@ $(document).ready(function(){
             "height": "132px",
             "width": "132px",
             "bottom": "61px",
-            "animation": "small_walk-east"
+            "animation": "small_walk-east 0.6s steps(6) infinite"
         });
         $("#grass").css({
             "background": "url(images/grass_small.jpg)",
@@ -61,7 +61,8 @@ $(document).ready(function(){
     $(".start").click(function welcome(){
         document.getElementById("welcome").pause();
         document.getElementById("good_luck").play();
-        setTimeout(remove_intro, 4300);
+        // setTimeout(remove_intro, 4300);
+        remove_intro();
         setTimeout(running_sound, 4500);
         setTimeout(show_input, 7000);
         setTimeout(tribute_arrives, 4500);
@@ -163,12 +164,52 @@ function remove_hearts(){
 function tribute_arrives(){
     var elem = document.getElementById("tribute");
     var randomizer = Math.floor(Math.random()*tributes.length);
-    $("#tribute").css(tributes[randomizer]);
-    
+
+    if(window.orientation === 90){
+        $("#tribute").css(small_tributes[randomizer]);
+        $("#tribute").css({"bottom": "62px"})
+    } else {
+        $("#tribute").css(tributes[randomizer]);
+    }
+
     tributes.splice(randomizer, 1);
+    // var pos = -1800;
+    // var timer = setInterval(frame, -100);
+    if(window.orientation === 90){
+        var timer = setInterval(frame, 10);
+        var pos = -800;
+        function frame() {
+            if (pos == -530) {
+                clearInterval(timer);
+            } else {
+                pos++;
+                // elem.style.bottom = '100px';
+                elem.style.left = -pos + 'px';
+            }
+        }
+    } else {
+        var timer = setInterval(frame, 0);
+        var pos = -1800;
+        function frame() {
+            if (pos == -1100) {
+                clearInterval(timer);
+            } else {
+                pos++;
+                // elem.style.bottom = '100px';
+                elem.style.left = -pos + 'px';
+            }
+        }
+    }
+
+    // var elem = document.getElementById("tribute");
+    // var randomizer = Math.floor(Math.random()*tributes.length);
+    // $("#tribute").css(tributes[randomizer]);
     
-    var pos = -1800;
-    var timer = setInterval(frame, -100);
+    // tributes.splice(randomizer, 1);
+    
+    
+    // var pos = -1800;
+    // var timer = setInterval(frame, -100);
     function frame() {
         if (pos == -1150) {
             clearInterval(timer);

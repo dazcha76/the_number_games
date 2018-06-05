@@ -190,6 +190,17 @@ p {
     to {background-position: 1536px;}
 }
 
+/* -------------- tribute -------------- */
+
+#tribute {
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 215px;
+    height: 273px;
+    bottom: 124px;
+}
+
 /* -------------- arrow -------------- */
 
 #arrow_container {
@@ -229,17 +240,6 @@ p {
     left: 135px;
     opacity: 0;
     visibility: hidden;
-}
-
-/* -------------- tribute -------------- */
-
-#tribute {
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    width: 215px;
-    height: 273px;
-    bottom: 124px;
 }
 
 /* -------------- blood -------------- */
