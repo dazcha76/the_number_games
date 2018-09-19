@@ -1,11 +1,36 @@
 let the_number = null;
 let lives = 5;
 let tributes = [
-    {'background': 'url("images/cato.png")'},
-    {'background': 'url("images/clove.png")'},
-    {'background': 'url("images/glimmer.png")'},
-    {'background': 'url("images/marvel.png")'},
-    {'background': 'url("images/foxface.png")'}
+    {
+        'background': 'url("images/cato.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/clove.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/glimmer.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/marvel.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    },
+    {
+        'background': 'url("images/foxface.png")',
+        'width': '215px',
+        'height': '273px',
+        'bottom': '124px'
+    }
 ];
 
 let small_tributes = [
@@ -78,6 +103,7 @@ $(document).ready(function(){
         ];
         pick_number();
         display_hearts();
+        $('#katniss').css({"visibility": "visible"});
         hide_input();
         document.getElementById("lose").pause();
         $("#arrow").css({"visibility": "hidden"});
@@ -339,9 +365,10 @@ function blood(){
 }
 
 function you_win(){
+    $('#katniss').css({"visibility": "hidden"});
     $("#you_win").css({"visibility": "visible"});
     $("#win_image").append("<img>");
-        $("#win_image > img").addClass("winner").attr({"src": "images/katniss_victor.png"}).css({"opacity": "0",
+    $("#win_image > img").addClass("winner").attr({"src": "images/katniss_victor.png"}).css({"opacity": "0",
                                                                                                  "visibility": "hidden",
                                                                                                  "transition": "opacity 8s, visibility 8s"});
     document.getElementById("win").play();
@@ -349,6 +376,7 @@ function you_win(){
 }
 
 function you_lose(){
+    $('#katniss').css({"visibility": "hidden"});
     $("#you_lose").css({"visibility": "visible"});
     $("#lose_image").append("<img>");
     $("#lose_image > img").addClass("fallen").attr({"src": "images/katniss_fallen.png"}).css({"opacity": "0",

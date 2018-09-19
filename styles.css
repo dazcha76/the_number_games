@@ -196,9 +196,9 @@ p {
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    width: 215px;
+    /*width: 215px;
     height: 273px;
-    bottom: 124px;
+    bottom: 124px;*/
 }
 
 /* -------------- arrow -------------- */
