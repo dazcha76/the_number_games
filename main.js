@@ -92,34 +92,6 @@ $(document).ready(function(){
         setTimeout(tribute_arrives, 4500);
     });
 
-    $(".play").click(function try_again(){
-        lives = 5;
-        tributes = [
-            {'background': 'url("images/cato.png")'},
-            {'background': 'url("images/clove.png")'},
-            {'background': 'url("images/glimmer.png")'},
-            {'background': 'url("images/marvel.png")'},
-            {'background': 'url("images/foxface.png")'}
-        ];
-        pick_number();
-        display_hearts();
-        $('#katniss').css({"visibility": "visible"});
-        hide_input();
-        document.getElementById("lose").pause();
-        $("#arrow").css({"visibility": "hidden"});
-        $("#blood").css({"visibility": "hidden"});
-        $("#you_win").css({"visibility": "hidden"});
-        $("#you_lose").css({"visibility": "hidden"});
-        $(".fallen").removeAttr("style");
-        $("#game").css({"visibility": "visible"});
-        $("#win_image").empty();
-        $("#lose_image").empty();
-    });
-
-    $(".quit").click(function quit_game(){
-        $("#quit").css({"visibility": "visible"});
-    });
-
     $(".shoot").click(function make_guess(){
         lives--;
         var the_guess = parseInt(document.getElementById("guess_input").value);
@@ -155,8 +127,6 @@ $(document).ready(function(){
             }
             setTimeout(hide_input, 2000);
         }
-        remove_hearts();
-        display_hearts();
     });
 });
 
@@ -275,20 +245,20 @@ function hide_input(){
 
 // have to fix flickering glitch
 
-function tribute_leaves(){
-    var elem = document.getElementById("tribute");
-    var pos = -1000;
-    var timer = setInterval(frame, -100);
-    function frame() {
-        if (pos == 500) {
-            clearInterval(timer);
-        } else {
-            pos++;
-            elem.style.bottom = '100px';
-            elem.style.left = -pos + 'px';
-        }
-    }
-}
+// function tribute_leaves(){
+//     var elem = document.getElementById("tribute");
+//     var pos = -1000;
+//     var timer = setInterval(frame, -100);
+//     function frame() {
+//         if (pos == 500) {
+//             clearInterval(timer);
+//         } else {
+//             pos++;
+//             elem.style.bottom = '100px';
+//             elem.style.left = -pos + 'px';
+//         }
+//     }
+// }
 
 // arrow goes up
 
@@ -309,7 +279,6 @@ function arrow_up(){
             elem.style.left = pos + 'px';
         }
     }
-    // document.getElementById("swoosh").play();
 }
 
 // arrow goes down
@@ -331,7 +300,6 @@ function arrow_down(){
             elem.style.left = pos + 'px';
         }
     }
-    // document.getElementById("swoosh").play();
 }
 
 // arrow goes straight
@@ -365,12 +333,24 @@ function blood(){
 }
 
 function you_win(){
+    remove_hearts();
     $('#katniss').css({"visibility": "hidden"});
     $("#you_win").css({"visibility": "visible"});
-    $("#win_image").append("<img>");
-    $("#win_image > img").addClass("winner").attr({"src": "images/katniss_victor.png"}).css({"opacity": "0",
-                                                                                                 "visibility": "hidden",
-                                                                                                 "transition": "opacity 8s, visibility 8s"});
+    
+    let buttons_container = $('<div>').addClass('win_buttons winner');
+    let play_button = $('<button>').addClass('play').text("Play");
+    let quit_button = $('<button>').addClass('quit').text("Quit");
+    $(buttons_container).append(play_button).append(quit_button);
+
+    let win_image = $('<img>').addClass('winner').attr("src", "images/katniss_victor.png");
+
+    let win_text = $('<p>').addClass('winner').text("YOU WIN!");
+
+    $("#you_win").append(buttons_container, win_image, win_text);
+
+    $(".play").click(try_again);
+    $(".quit").click(quit_game);
+
     document.getElementById("win").play();
     setInterval(winner, 1500);
 }
@@ -393,3 +373,35 @@ function hologram(){
 function winner(){
     $(".winner").css({"opacity": "1", "visibility": "visible"})
 }
+
+function try_again(){
+    lives = 5;
+    tributes = [
+        {'background': 'url("images/cato.png")'},
+        {'background': 'url("images/clove.png")'},
+        {'background': 'url("images/glimmer.png")'},
+        {'background': 'url("images/marvel.png")'},
+        {'background': 'url("images/foxface.png")'}
+    ];
+    pick_number();
+    display_hearts();
+    $('#katniss').css({"visibility": "visible"});
+    hide_input();
+    document.getElementById("lose").pause();
+    $("#arrow").css({"visibility": "hidden"});
+    $("#blood").css({"visibility": "hidden"});
+    $("#you_win").css({"visibility": "hidden"});
+    $("#you_win").empty();
+    $("#you_lose").css({"visibility": "hidden"});
+    $(".fallen").removeAttr("style");
+    $("#game").css({"visibility": "visible"});
+    $("#lose_image").empty();
+}
+
+function quit_game(){
+    $("#quit").css({"visibility": "visible"});
+    $("#you_win").css({"visibility": "hidden"});
+    $("#you_win").empty();
+}
+
+
