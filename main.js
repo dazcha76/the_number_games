@@ -341,32 +341,32 @@ function you_win(){
     let play_button = $('<button>').addClass('play').text("Play");
     let quit_button = $('<button>').addClass('quit').text("Quit");
     $(buttons_container).append(play_button).append(quit_button);
-
     let win_image = $('<img>').addClass('winner').attr("src", "images/katniss_victor.png");
-
     let win_text = $('<p>').addClass('winner').text("YOU WIN!");
-
     $("#you_win").append(buttons_container, win_image, win_text);
-
     $(".play").click(try_again);
     $(".quit").click(quit_game);
-
     document.getElementById("win").play();
     setInterval(winner, 1500);
 }
 
 function you_lose(){
+    remove_hearts();
     $('#katniss').css({"visibility": "hidden"});
     $("#you_lose").css({"visibility": "visible"});
-    $("#lose_image").append("<img>");
-    $("#lose_image > img").addClass("fallen").attr({"src": "images/katniss_fallen.png"}).css({"opacity": "0",
-                                                                                                 "visibility": "hidden",
-                                                                                                 "transition": "opacity 8s, visibility 8s"});
+
+    let play_button = $('<button>').addClass('lose_retry play fallen').text("Retry");
+    let quit_button = $('<button>').addClass('lose_quit quit fallen').text("Quit");
+    let lose_image = $('<img>').addClass('lose_image fallen').attr("src", "images/katniss_fallen.png");
+    let lose_text = $('<p>').addClass('fallen').text("YOU LOSE!");
+    $("#you_lose").append(play_button, lose_image, quit_button, lose_text);
+    $(".play").click(try_again);
+    $(".quit").click(quit_game);
     document.getElementById("lose").play();
-    setInterval(hologram, 1500);
+    setInterval(loser, 1500);
 }
 
-function hologram(){
+function loser(){
     $(".fallen").css({"opacity": "1", "visibility": "visible"})
 }
 
@@ -393,15 +393,18 @@ function try_again(){
     $("#you_win").css({"visibility": "hidden"});
     $("#you_win").empty();
     $("#you_lose").css({"visibility": "hidden"});
-    $(".fallen").removeAttr("style");
+    $("#you_lose").empty();
+    // $(".fallen").removeAttr("style");
     $("#game").css({"visibility": "visible"});
-    $("#lose_image").empty();
+    // $("#lose_image").empty();
 }
 
 function quit_game(){
     $("#quit").css({"visibility": "visible"});
     $("#you_win").css({"visibility": "hidden"});
     $("#you_win").empty();
+    $("#you_lose").css({"visibility": "hidden"});
+    $("#you_lose").empty();
 }
 
 

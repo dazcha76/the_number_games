@@ -346,23 +346,21 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
 
 .lose_image {
-  width: 40vw;
+    margin: -30vh 0 0 -10vw;
+    height: 150vh;
 }
 
 .fallen {
-    margin-top: -11vh;
-    height: 150vh;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 20s, visibility 12s;
+    transition: opacity 15s, visibility 10s;
 }
 
 .lose_retry, .lose_quit {
@@ -380,6 +378,7 @@ p {
     font-weight: 900;
     cursor: pointer;
     font-family: 'BankGothic', sans-serif;
+    margin-top: 50vh;
 }
 
 .lose_retry {
@@ -393,8 +392,10 @@ p {
 #you_lose p {
     position: absolute;
     top: 1vh;
-    left: 50;
-    font-size: 10vh;
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 20vh;
     color: rgb(44, 76, 99);
     z-index: 1;
 }
