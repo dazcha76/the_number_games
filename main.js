@@ -127,6 +127,8 @@ $(document).ready(function(){
             }
             setTimeout(hide_input, 2000);
         }
+        remove_hearts();
+        display_hearts();
     });
 });
 
