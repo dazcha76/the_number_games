@@ -1,5 +1,5 @@
 let the_number = null;
-let lives = 1;
+let lives = 5;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -69,21 +69,24 @@ let small_tributes = [
 $(document).ready(function(){
     console.log("orientation: " + window.orientation)
 
-    if(window.orientation === 90){
-        $("#katniss").css({
-            "background": "url(images/katniss_small.png)",
-            "height": "132px",
-            "width": "132px",
-            "bottom": "61px",
-            "animation": "small_walk-east 0.6s steps(6) infinite"
-        });
-        $("#grass").css({
-            "background": "url(images/grass_small.jpg)",
-            "height": "103px",
-        });
-    } else if(window.orientation === 0){
-        $('.portrait').css("visibility", "visible");
-    }
+    // ROTATE SCREEN
+
+    // if(window.orientation === 90){
+    //     $("#katniss").css({
+    //         "background": "url(images/katniss_small.png)",
+    //         "height": "132px",
+    //         "width": "132px",
+    //         "bottom": "61px",
+    //         "animation": "small_walk-east 0.6s steps(6) infinite"
+    //     });
+    //     $("#grass").css({
+    //         "background": "url(images/grass_small.jpg)",
+    //         "height": "103px",
+    //     });
+    // } else if(window.orientation === 0){
+    //     $('.portrait').css("display", "block");
+    //     $('#intro').css("display", "none");
+    // }
 
     $(".start").click(function welcome(){
         $('.start').off("click");
