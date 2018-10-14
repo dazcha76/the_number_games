@@ -1,5 +1,5 @@
 let the_number = null;
-let lives = 5;
+let lives = 1;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -67,7 +67,7 @@ let small_tributes = [
 ];
 
 $(document).ready(function(){
-    console.log(window.orientation)
+    console.log("orientation: " + window.orientation)
 
     if(window.orientation === 90){
         $("#katniss").css({
@@ -81,9 +81,12 @@ $(document).ready(function(){
             "background": "url(images/grass_small.jpg)",
             "height": "103px",
         });
-    } 
+    } else if(window.orientation === 0){
+        $('.portrait').css("visibility", "visible");
+    }
 
     $(".start").click(function welcome(){
+        $('.start').off("click");
         document.getElementById("welcome").pause();
         document.getElementById("good_luck").play();
         setTimeout(remove_intro, 4300);
