@@ -26,12 +26,28 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: black;
-    margin: auto;
-    padding: 2% 0;
+    padding: 1vh;
     position: absolute;
     top: 0;
     left: 0;
     visibility: visible;
+}
+
+.welcome_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.image {
+    height: 100vh;
+    width: 55vw;
+}
+
+.instructions {
+    height: 100vh;
+    width: 45vw;
 }
 
 h1, h2 {
@@ -40,38 +56,41 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 5vh;
-    margin: 0 0 -2% 0;
+    font-size: 6vh;
+    margin: 10vh 0 15vh 0;
     opacity: 0.999;
 }
 
 h2 {
     font-size: 4vh;
+    margin-bottom: 15vh;
     padding: 0 10%;
-    margin: -2% 0 0 0;
     opacity: 0.999;
 }
 
 .start {
-    margin: 2vh auto 0 auto;
-    background: rgb(248, 148, 59);
-    box-shadow: inset -0.5vw -0.5vh rgba(163, 89, 43, 0.98);
-    color: black;
+    width: 170px;
     display: block;
-    height: 6.5%;
-    min-width: 10%;
-    border: none;
-    border-radius: 25px;
-    font-size: 4vh;
-    font-weight: 900;
+    margin: 0 auto;
     cursor: pointer;
-    font-family: 'BankGothic', sans-serif;
+}
+
+.start_pic {
+    width: 40%;
+    vertical-align: middle;
+}
+
+.start_text {
+    color: rgb(248, 148, 59);
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
 }
 
 .logo {
     display: block;
-    margin: -1% auto 0 auto;
-    width: 45%;
+    margin: 2.5% auto;
+    height: 95%;
 }
 
 /* -------------- game -------------- */
@@ -192,9 +211,6 @@ p {
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    /*width: 215px;
-    height: 273px;
-    bottom: 124px;*/
 }
 
 /* -------------- arrow -------------- */
