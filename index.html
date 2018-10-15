@@ -13,7 +13,7 @@
 
 	<body onload="pick_number()">
 
-		<audio id="welcome" src="sounds/welcome.mp3" autoplay></audio>
+		<audio id="welcome" src="sounds/welcome.mp3"></audio>
 		<audio id="good_luck" src="sounds/the_odds.mp3"></audio>
 
 		<audio id="running" src="sounds/running.mp3"></audio>
@@ -24,12 +24,10 @@
 
 		<div id="intro">
 			<div class="welcome_wrapper">
-				<div class="image">
-					<img class="logo" src="images/mockingjay.jpg">
-				</div>
+				<div class="image"></div>
 
 				<div class="instructions">
-					<h1>Welcome to the <br> 74th Annual <br> Number Games!</h1>
+					<h1>Welcome to the 74th Annual Number Games!</h1>
 
 					<h2>Guess the correct number between 1 and 23 to kill the tribute and win!
 					You have 5 chances.</h2>
@@ -80,7 +78,23 @@
 
 			<div id="you_win"></div>
 
-			<div id="you_lose"></div>
+			<div id="you_lose">
+				<div class="play">
+					<img src="images/blue.png" class="play_pic">
+					<p class="play_text">Retry</p>
+				</div>
+
+				<div class="lose_image">
+					<img src="images/katniss_fallen.png">
+				</div>
+
+				<div class="quit">
+					<img src="images/blue.png" class="quit_pic">
+					<p class="quit_text">Quit</p>
+				</div>
+
+				<p class="fallen">YOU LOSE!</p>
+			</div>
 
 			<div id="quit">
 				<p class="red">The Rebellion</p>

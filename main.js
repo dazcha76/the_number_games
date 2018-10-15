@@ -1,5 +1,5 @@
 let the_number = null;
-let lives = 5;
+let lives = 1;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
@@ -67,7 +67,8 @@ let small_tributes = [
 ];
 
 $(document).ready(function(){
-    console.log("orientation: " + window.orientation)
+
+    play_welcome();
 
     // ROTATE SCREEN
 
@@ -137,6 +138,10 @@ $(document).ready(function(){
         display_hearts();
     });
 });
+
+function play_welcome(){
+    document.getElementById("welcome").play();
+}
 
 function pick_number(){
     the_number = Math.ceil(Math.random()*23);
@@ -344,7 +349,6 @@ function you_win(){
     remove_hearts();
     $('#katniss').css({"visibility": "hidden"});
     $("#you_win").css({"visibility": "visible"});
-    
     let buttons_container = $('<div>').addClass('win_buttons winner');
     let play_button = $('<button>').addClass('play').text("Play");
     let quit_button = $('<button>').addClass('quit').text("Quit");
@@ -362,12 +366,6 @@ function you_lose(){
     remove_hearts();
     $('#katniss').css({"visibility": "hidden"});
     $("#you_lose").css({"visibility": "visible"});
-
-    let play_button = $('<button>').addClass('lose_retry play fallen').text("Retry");
-    let quit_button = $('<button>').addClass('lose_quit quit fallen').text("Quit");
-    let lose_image = $('<img>').addClass('lose_image fallen').attr("src", "images/katniss_fallen.png");
-    let lose_text = $('<p>').addClass('fallen').text("YOU LOSE!");
-    $("#you_lose").append(play_button, lose_image, quit_button, lose_text);
     $(".play").click(try_again);
     $(".quit").click(quit_game);
     document.getElementById("lose").play();
@@ -375,7 +373,8 @@ function you_lose(){
 }
 
 function loser(){
-    $(".fallen").css({"opacity": "1", "visibility": "visible"})
+    $(".fallen").css({"opacity": "1", "visibility": "visible"});
+    $(".lose_image").css({"opacity": "1", "visibility": "visible"})
 }
 
 function winner(){
