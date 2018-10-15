@@ -1,5 +1,5 @@
 let the_number = null;
-let lives = 1;
+let lives = 5;
 let tributes = [
     {
         'background': 'url("images/cato.png")',
