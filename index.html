@@ -13,7 +13,7 @@
 
 	<body onload="pick_number()">
 
-		<audio id="welcome" src="sounds/welcome.mp3"></audio>
+		<audio id="welcome" src="sounds/welcome.mp3" autoplay></audio>
 		<audio id="good_luck" src="sounds/the_odds.mp3"></audio>
 
 		<audio id="running" src="sounds/running.mp3"></audio>
@@ -76,7 +76,24 @@
 			<div id="tribute"></div>
 			<div id="blood"></div>
 
-			<div id="you_win"></div>
+			<div id="you_win">
+				<div class="play">
+					<img src="images/yellow.png" class="play_pic">
+					<p class="play_text">Play</p>
+				</div>
+
+				<div class="win_image">
+					<img src="images/katniss_victor.png">
+				</div>
+
+				<div class="quit">
+					<img src="images/yellow.png" class="quit_pic">
+					<p class="quit_text">Quit</p>
+				</div>
+
+				<p class="winner">YOU WIN!</p>
+				
+			</div>
 
 			<div id="you_lose">
 				<div class="play">
@@ -101,7 +118,6 @@
 				<img class="rebellion" src="images/katniss_red.png">
 				<p class="red">Thanks You</p>
 			</div>
-
 		</div>
 	</body>
 </html>

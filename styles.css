@@ -310,9 +310,20 @@ p {
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
-#you_win p {
+.win_image {
+    margin-top: -10vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 10s, visibility 10s;
+}
+
+.winner {
     position: absolute;
     top: 55vh;
     width: 100%;
@@ -320,12 +331,30 @@ p {
     font-size: 20vh;
     color: rgb(248, 148, 59);
     z-index: 1;
-}
-
-.winner {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 8s, visibility 8s;
+    transition: opacity 10s, visibility 10s;
+}
+
+#you_win .play, #you_win .quit {
+    width: 20vw;
+    padding-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+#you_win .play {
+    padding-left: 1vh;
+}
+
+#you_win .quit {
+    padding-right: 1vh;
+}
+
+#you_win .play_text, #you_win .quit_text {
+    color: rgb(248, 148, 59);
 }
 
 /* -------------- you lose -------------- */

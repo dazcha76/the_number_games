@@ -68,7 +68,7 @@ let small_tributes = [
 
 $(document).ready(function(){
 
-    play_welcome();
+    
 
     // ROTATE SCREEN
 
@@ -138,10 +138,6 @@ $(document).ready(function(){
         display_hearts();
     });
 });
-
-function play_welcome(){
-    document.getElementById("welcome").play();
-}
 
 function pick_number(){
     the_number = Math.ceil(Math.random()*23);
@@ -349,13 +345,6 @@ function you_win(){
     remove_hearts();
     $('#katniss').css({"visibility": "hidden"});
     $("#you_win").css({"visibility": "visible"});
-    let buttons_container = $('<div>').addClass('win_buttons winner');
-    let play_button = $('<button>').addClass('play').text("Play");
-    let quit_button = $('<button>').addClass('quit').text("Quit");
-    $(buttons_container).append(play_button).append(quit_button);
-    let win_image = $('<img>').addClass('winner').attr("src", "images/katniss_victor.png");
-    let win_text = $('<p>').addClass('winner').text("YOU WIN!");
-    $("#you_win").append(buttons_container, win_image, win_text);
     $(".play").click(try_again);
     $(".quit").click(quit_game);
     document.getElementById("win").play();
@@ -378,7 +367,8 @@ function loser(){
 }
 
 function winner(){
-    $(".winner").css({"opacity": "1", "visibility": "visible"})
+    $(".winner").css({"opacity": "1", "visibility": "visible"});
+    $(".win_image").css({"opacity": "1", "visibility": "visible"})
 }
 
 function try_again(){
