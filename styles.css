@@ -420,24 +420,53 @@ p {
 #quit {
     height: 100vh;
     width: 100vw;
-    background-color: white;
+    background-color: black;
     position: absolute;
     top: 0;
     left: 0;
     visibility: hidden;
+    font-family: 'Graffiti', sans-serif;
+    color: red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .rebellion {
     display: block;
-    margin: -11vh auto;
-    height: 80vh;
+    margin: 5vh 0;
+    height: 90vh;
 }
 
 .red {
-    font-family: 'Graffiti', sans-serif;
-    color: red;
     font-size: 15vh;
-    opacity: 0.999;
+    display: block;
+    text-align: center;
+    margin: 15vh 0 10vh 0;
+}
+
+.left {
+    width: 45vw;
+}
+
+.home {
+    width: 25vw;
+    display: block;
+    margin: 5vw auto;
+    cursor: pointer;
+}
+
+.home_pic {
+    width: 40%;
+    vertical-align: middle;
+}
+
+.home_text {
+    font-size: 10vh;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
 }
 
 /* -------------------- PORTRAIT OPTIONS -------------------- */

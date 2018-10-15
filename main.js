@@ -391,9 +391,7 @@ function try_again(){
     $("#you_win").empty();
     $("#you_lose").css({"visibility": "hidden"});
     $("#you_lose").empty();
-    // $(".fallen").removeAttr("style");
     $("#game").css({"visibility": "visible"});
-    // $("#lose_image").empty();
 }
 
 function quit_game(){
@@ -402,6 +400,8 @@ function quit_game(){
     $("#you_win").empty();
     $("#you_lose").css({"visibility": "hidden"});
     $("#you_lose").empty();
+    document.getElementById("win").pause();
+    document.getElementById("lose").pause();
 }
 
 
