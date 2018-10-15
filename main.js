@@ -68,8 +68,6 @@ let small_tributes = [
 
 $(document).ready(function(){
 
-    
-
     // ROTATE SCREEN
 
     // if(window.orientation === 90){
@@ -89,15 +87,7 @@ $(document).ready(function(){
     //     $('#intro').css("display", "none");
     // }
 
-    $(".start").click(function welcome(){
-        $('.start').off("click");
-        document.getElementById("welcome").pause();
-        document.getElementById("good_luck").play();
-        setTimeout(remove_intro, 4300);
-        setTimeout(running_sound, 4500);
-        setTimeout(show_input, 7000);
-        setTimeout(tribute_arrives, 4500);
-    });
+    $(".start").click(welcome);
 
     $(".shoot").click(function make_guess(){
         lives--;
@@ -121,7 +111,7 @@ $(document).ready(function(){
                     setTimeout(you_lose, 2000);
                 } else {
                     $("#response_div1").text("You missed!");
-                    $("#response_div2").text("Try shooting lower.");
+                    $("#response_div2").text("Guess lower.");
                 }
             } else if(the_guess < the_number){
                 arrow_down();
@@ -129,7 +119,7 @@ $(document).ready(function(){
                     setTimeout(you_lose, 2000);
                 } else {
                     $("#response_div1").text("You missed!");
-                    $("#response_div2").text("Try shooting higher.");
+                    $("#response_div2").text("Guess higher.");
                 }
             }
             setTimeout(hide_input, 2000);
@@ -145,8 +135,20 @@ function pick_number(){
     return the_number;
 }
 
+function welcome(){
+    $('.start').off("click");
+    document.getElementById("welcome").pause();
+    document.getElementById("good_luck").play();
+    setTimeout(remove_intro, 4300);
+    setTimeout(running_sound, 4500);
+    setTimeout(show_input, 7000);
+    setTimeout(tribute_arrives, 4500);
+    $('#katniss').removeAttr("style")
+}
+
 function remove_intro(){
     $("#game").css({"visibility": "visible"});
+    $('#katniss').css({"visibility": "visible"});
     display_hearts();
 }
 
@@ -396,6 +398,7 @@ function try_again(){
 
 function quit_game(){
     $("#quit").css({"visibility": "visible"});
+    $(".home").click(home);
     $("#you_win").css({"visibility": "hidden"});
     $("#you_win").empty();
     $("#you_lose").css({"visibility": "hidden"});
@@ -404,4 +407,6 @@ function quit_game(){
     document.getElementById("lose").pause();
 }
 
-
+function home(){
+    location.reload(true);
+}
